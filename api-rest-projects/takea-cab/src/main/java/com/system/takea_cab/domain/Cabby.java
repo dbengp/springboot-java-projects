@@ -1,9 +1,8 @@
 package com.system.takea_cab.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Cabby {
@@ -14,6 +13,9 @@ public class Cabby {
 	String name;
 	String pronouns;
 	String contact;
+
+	//@OneToMany(mappedBy="cabby")
+	//List<Car> cars;
 
 	public Cabby() {}
 
@@ -54,4 +56,12 @@ public class Cabby {
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
+/*
+	public List<Car> getCars() {
+		return cars;
+	}
+
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	} */
 }
