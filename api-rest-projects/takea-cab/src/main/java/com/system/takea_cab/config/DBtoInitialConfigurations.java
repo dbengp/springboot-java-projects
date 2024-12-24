@@ -1,9 +1,6 @@
 package com.system.takea_cab.config;
 
-import com.system.takea_cab.domain.Cabby;
-import com.system.takea_cab.domain.CabbyRepository;
-import com.system.takea_cab.domain.Car;
-import com.system.takea_cab.domain.CarRepository;
+import com.system.takea_cab.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +15,9 @@ public class DBtoInitialConfigurations implements CommandLineRunner {
 	
 	@Autowired
 	private CarRepository carRepository;
+
+	@Autowired
+	private PassengerRepository passengerRepository;
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -59,6 +59,17 @@ public class DBtoInitialConfigurations implements CommandLineRunner {
 
 		six.setCabby(sirBlackUk);
 		carRepository.save(six);
+
+		Passenger antoine = new Passenger("Antoine Lacroix", "He/him");
+		Passenger jenny = new Passenger("Jenny Textor", "He/him");
+		Passenger anna = new Passenger("Anna Tacher", "She/her");
+		Passenger bento = new Passenger("Bento Asunción", "He/him");
+		Passenger pyong = new Passenger("Pyong Yang", "He/him");
+
+		List<Passenger> passengers = List.of(antoine, jenny, anna, bento, pyong);
+
+		passengerRepository.saveAll(passengers);
+
 	}
 
 }

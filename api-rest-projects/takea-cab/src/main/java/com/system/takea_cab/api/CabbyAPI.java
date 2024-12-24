@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @RestController
-@RequestMapping(value = "/cabbies", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/cabbies", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CabbyAPI{
 
 	@Autowired
@@ -22,12 +22,12 @@ public class CabbyAPI{
 	@Autowired
     CarRepository carRepository;
 
-	@PostMapping("/addone")
+	@PostMapping("/add")
 	public Cabby createCabby(@RequestBody Recruited recruited) {
 		return cabbyRepository.save(fromRecruitedToCabby(recruited));
 	}
 
-	@GetMapping("/justone/{id}")
+	@GetMapping("/pickone/{id}")
 	public Cabby findCabby(@PathVariable("id") Long id) {
 		return cabbyRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 	}
