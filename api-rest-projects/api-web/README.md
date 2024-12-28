@@ -1,0 +1,1 @@
+REST API for a microcredit fintech, very simple compared to real-world business models, regulations and technologies involved. But this is just an example of code that aims to follow good development practices, using the appropriate tools to build, as far as possible, a robust, scalable and secure API.
